@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="col-xs-12">
+    <form [formGroup]="profileForm">
+      <h2>My Profile</h2>
+
+      <img [src]="url" title="Profile Picture" height="150px" width="150px" />
+      <input
+        type="file"
+        id="img"
+        style="display: none"
+        accept="image/*"
+        (change)="onSelect($event)"
+        #fileInput
+      />
+      <label for="img">Upload Image</label>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name : {{ currentUser.name }} </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="email">Email:{{ currentUser.email }}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="date">DOB</label>
+            <input
+              type="date"
+              id="date"
+              class="form-control"
+              formControlName="date"
+            />
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <button type="submit" class="btn btn-primary" (click)="confirm()">
+        confirm
+      </button>
+    </form>
+  </div>
+</div>

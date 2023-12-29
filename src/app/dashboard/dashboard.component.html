@@ -1,0 +1,55 @@
+<div class="dashboard">
+  <div class="header">
+    <h2 class="u-name"></h2>
+    <i class="fa-regular fa-heart" (click)="toggleFavoritePopup()">
+      <span class="badge rounded-pill badge-notification bg-danger">{{
+        favoriteCount
+      }}</span>
+    </i>
+    <!-- <div class="favorite-popup" *ngIf="showFavoritePopup">
+      <h3>Favorite Recipes</h3>
+      <ul>
+        <li *ngFor="let recipe of favoriteRecipes">
+          {{ recipe.name }}
+        </li>
+      </ul>
+      <button (click)="closeFavoritesPopup()">Close</button>
+    </div> -->
+
+    <a class="nav-link" (click)="toProfile()">
+      <i class="fa-solid fa-user"></i>
+    </a>
+    <a class="nav-link" (click)="logout()">
+      <i class="fa fa-sign-out"></i>
+    </a>
+  </div>
+  <div class="bodyContainer">
+    <div class="body">
+      <nav class="side-bar">
+        <div class="user-p">
+          <img [src]="userImage" title="profile" height="50px" width="50px" />
+          <div *ngIf="currentUser">
+            <p>Name:{{ currentUser.name }}</p>
+            <p>Email:{{ currentUser.email }}</p>
+            <p>DOB:{{ userDOB }}</p>
+          </div>
+          <ul>
+            <li>
+              <a class="nav-link" (click)="toHome()">Home</a>
+            </li>
+            <li>
+              <a class="nav-link" (click)="toRecipe()">Add Recipe</a>
+            </li>
+
+            <li>
+              <a class="nav-link" (click)="toCart()">Cart</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="dashboard">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

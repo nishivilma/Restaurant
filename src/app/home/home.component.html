@@ -1,0 +1,156 @@
+<!-- <div class="dashboardBodyRight">
+  <div class="container">
+    <div class="row">
+      <div class="card-body">
+        <input
+          type="text"
+          class="form-control"
+          name="recipeSearch"
+          [(ngModel)]="searchText"
+        />
+
+        <i
+          class="fa fa-filter"
+          aria-hidden="true"
+          (click)="toggleSortingOptions()"
+        ></i>
+        <div *ngIf="showSortingOptions" class="sorting-options">
+          <label>
+            <input
+              type="radio"
+              name="sorting"
+              [(ngModel)]="selectedSorting"
+              value="lowToHigh"
+            />
+            Low to High
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="sorting"
+              [(ngModel)]="selectedSorting"
+              value="highToLow"
+            />
+            High to Low
+          </label>
+        </div>
+        <ul>
+          <li
+            class="d-flex my-3 py-3 px-3"
+            *ngFor="
+              let recipe of sortedRecipes | search : searchText;
+              let i = index
+            "
+          >
+            <div class="card mb-3">
+              <img
+                [src]="recipe.imageUrl"
+                title="Recipe Image"
+                height="100px"
+                width="150px"
+              />
+              <div class="card-body">
+                <p class="card-title">Name: {{ recipe.name }}</p>
+                <p class="card-text">Price: {{ recipe.number }}</p>
+              </div>
+              <div class="card-footer">
+                <button (click)="addToCart(recipe)" class="btn btn-primary">
+                  Add to Cart
+                </button>
+                <br />
+                <button (click)="deleteRecipe(recipe)" class="btn btn-danger">
+                  Delete
+                </button>
+                <br />
+                <i
+                  class="fa-regular fa-heart"
+                  (click)="addToFavorites(recipe)"
+                ></i>
+              </div>
+            </div>
+          </li>
+        </ul>
+      
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="dashboardBodyRight">
+  <div class="container">
+    <div class="row">
+      <div class="card-body">
+        <input
+          type="text"
+          class="form-control"
+          name="recipeSearch"
+          [(ngModel)]="searchText"
+        />
+
+        <i
+          class="fa fa-filter"
+          aria-hidden="true"
+          (click)="toggleSortingOptions()"
+        ></i>
+        <div *ngIf="showSortingOptions" class="sorting-options">
+          <label>
+            <input
+              type="radio"
+              name="sorting"
+              [(ngModel)]="selectedSorting"
+              value="lowToHigh"
+            />
+            Low to High
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="sorting"
+              [(ngModel)]="selectedSorting"
+              value="highToLow"
+            />
+            High to Low
+          </label>
+        </div>
+        <div class="row">
+          <div
+            class="col-md-4"
+            *ngFor="
+              let recipe of sortedRecipes | search : searchText;
+              let i = index
+            "
+          >
+            <div class="card mb-3">
+              <img
+                [src]="recipe.imageUrl"
+                title="Recipe Image"
+                height="100px"
+                width="150px"
+              />
+              <div class="card-body">
+                <p class="card-title">Name: {{ recipe.name }}</p>
+                <p class="card-text">Price: {{ recipe.number }}</p>
+              </div>
+              <div class="card-footer">
+                <button (click)="addToCart(recipe)" class="btn btn-primary">
+                  Add to Cart
+                </button>
+                <br />
+                <button (click)="deleteRecipe(recipe)" class="btn btn-danger">
+                  Delete
+                </button>
+                <br />
+                <i
+                  class="fa-regular fa-heart"
+                  (click)="addToFavorites(recipe)"
+                  (click)="toggleFavorite(recipe)"
+                  [ngClass]="{ favorite: recipe.isFavorite }"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Cart</h2>
+
+  <div *ngIf="cartItems.length === 0">Your cart is empty.</div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of cartItems">
+      <div class="row">
+        <!-- <div *ngFor="let recipe of recipes"> -->
+        <div class="card mb-3">
+          <img
+            [src]="item.imageUrl"
+            alt="Recipe Image"
+            title="Recipe Image"
+            height="100px"
+            width="150px"
+          />
+          <div class="card-body">
+            <p class="card-title">Name: {{ item.name }}</p>
+            <p class="card-text">Price: {{ item.number }}</p>
+          </div>
+          <div class="card-footer">
+            <button (click)="removeFromCart(item)" class="btn btn-danger">
+              Remove
+            </button>
+          </div>
+        </div>
+        <!-- </div> -->
+        <div class="card-footer">
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

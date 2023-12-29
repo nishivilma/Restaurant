@@ -1,0 +1,24 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+.invalid {
+  color: red;
+}
+.container {
+  /* width: 400px;
+  margin: 0 auto; */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn {
+  border-radius: 20px;
+  width: 400px;
+}
+.form-group {
+  width: 400px;
+}
+.container {
+  width: 400px;
+  margin: 0 auto;
+}

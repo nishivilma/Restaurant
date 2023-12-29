@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row custom-wrapper">
+    <div class="col-xs-12">
+      <form [formGroup]="recipeForm">
+        <img [src]="url" title="Profile Picture" height="150px" width="150px" />
+        <input
+          type="file" 
+          id="img"
+          style="display: none"
+          accept="image/*"
+          (change)="onSelect($event)"
+        />
+        <label for="img">Upload Image</label>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Recipe Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                formControlName="name"
+              />
+            </div>
+            <div class="invalid" *ngIf="recipeForm.get('name')?.errors"></div>
+
+            <div
+              class="invalid"
+              *ngIf="
+                recipeForm.get('name')?.touched &&
+                recipeForm.get('name')?.hasError('required')
+              "
+            >
+              *Recipe Name is required
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input
+                type="number"
+                id="number"
+                class="form-control"
+                formControlName="number"
+              />
+            </div>
+            <div class="invalid" *ngIf="recipeForm.get('number')?.errors"></div>
+
+            <div
+              class="invalid"
+              *ngIf="
+                recipeForm.get('number')?.touched &&
+                recipeForm.get('number')?.hasError('required')
+              "
+            >
+              *price is required
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <button type="submit" class="btn btn-primary" (click)="addRecipe()">
+          Add
+        </button>
+        <br />
+        <br />
+        <!-- <div class="row">
+          <div class="col-xs-12" *ngFor="let recipe of recipes">
+            <button class="btn btn-primary" (click)="addToCart(recipe)">
+              Add to Cart
+            </button>
+          </div>
+        </div> -->
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <form>
+          <h2>SIGN UP</h2>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="name">UserName</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  formControlName="name"
+                />
+                <!-- [(ngModel)]="signupObj.userName" -->
+              </div>
+              <div class="invalid" *ngIf="signupForm.get('name')?.errors"></div>
+
+              <div
+                class="invalid"
+                *ngIf="
+                  signupForm.get('name')?.touched &&
+                  signupForm.get('name')?.hasError('required')
+                "
+              >
+                *Name is required
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                />
+                <div
+                  class="invalid"
+                  *ngIf="signupForm.get('email')?.errors"
+                ></div>
+              </div>
+              <div
+                class="invalid"
+                *ngIf="
+                  signupForm.get('email')?.touched &&
+                  signupForm.get('email')?.hasError('required')
+                "
+              >
+                *Email is required
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="password">password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  formControlName="password"
+                />
+              </div>
+              <div
+                class="invalid"
+                *ngIf="signupForm.get('password')?.errors?.['pattern']"
+              >
+                invalid password
+              </div>
+              <div
+                class="invalid"
+                *ngIf="
+                  signupForm.get('password')?.touched &&
+                  signupForm.get('password')?.hasError('required')
+                "
+              >
+                *password is required
+              </div>
+            </div>
+          </div>
+          <br />
+
+          <button type="submit" class="btn btn-primary" (click)="onSignup()">
+            Signup
+          </button>
+
+          <br />
+
+          <ul routerLinkActive="active">
+            <a routerLink="/signin">already Member</a>
+          </ul>
+        </form>
+      </form>
+    </div>
+  </div>
+</div>

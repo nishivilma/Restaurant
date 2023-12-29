@@ -1,0 +1,12 @@
+.card {
+  width: 180px;
+}
+
+.btn {
+  width: 100px;
+  height: 25px;
+  font-size: small;
+}
+.favorite {
+  color: red;
+}
